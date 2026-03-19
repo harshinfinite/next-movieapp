@@ -9,7 +9,6 @@ const details = () => {
   const {selectedMovie} = useContext(DataContext);
   const [movieId, setMovieId] = useState(selectedMovie?.imdbID || null)
   const [movieDetails, setMovieDetails] = useState(null);
-  console.log('Selected Movie:', movieDetails);
 
   const apiurl = 'https://www.omdbapi.com/';
   const apikey = '70516783';
