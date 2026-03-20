@@ -1,30 +1,24 @@
 "use client"
-import React from 'react'
+import React, { use } from 'react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { DataContext } from '../context/ApiContext'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
   const {setQuery,setPage,favourites,watchlist,setView,view} = useContext(DataContext)
 
+  const router = useRouter();
+
   const showFav = () => {
-    const favExists = favourites.length > 0;
-    if (!favExists) {
-      setView('home')
-      return;
-    }
-    setView('favourites')
-    console.log(favourites)
+      router.push('/favourite')
   }
  
   const showWatchlist = () => {
-    const watchlistExists = watchlist.length > 0;
-    if (!watchlistExists) {
-      setView('home')
-      return;
-    }
-    setView('watchlist')
+    
+      router.push('/watchlist')
+     
   }
 
   

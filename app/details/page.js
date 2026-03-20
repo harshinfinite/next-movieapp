@@ -1,12 +1,12 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import Navbar from '../../components/Navbar'
+import Link from 'next/link'
 import { useContext, useState, useEffect } from 'react'
 import { DataContext } from '../../context/ApiContext'
 
 const details = () => {
-  const {selectedMovie} = useContext(DataContext);
+  const { selectedMovie } = useContext(DataContext);
   const [movieId, setMovieId] = useState(selectedMovie?.imdbID || null)
   const [movieDetails, setMovieDetails] = useState(null);
 
@@ -45,6 +45,10 @@ const details = () => {
           <p className=''>{movieDetails?.Plot}</p>
         </div>
       </div>
+      <p>
+        <Link href='/' className='bg-blue-500 text-white rounded-full px-4 py-2'>Go Back Home</Link>
+      </p>
+
     </section>
 
   )
